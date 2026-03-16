@@ -1,34 +1,34 @@
-# Clase vehiculo
-class Vehiculo:
-    def __init__(self, matricula: str, modelo: str, marca: str, es_electrico: bool, es_hibrido: bool):
+from abc import ABC, abstractmethod
 
-        self.matricula: str = matricula
-        self.modelo: str = modelo
-        self.marca: str = marca
-        self.disponible: bool = True
-        self.es_electrico: bool = es_electrico
-        self.es_hibrido: bool = es_hibrido
+class Vehiculo(ABC):
+    def __init__(self, matricula: str, marca: str, modelo: str):
+        # Usamos _ para indicar que son atributos protegidos
+        self._matricula = matricula
+        self._marca = marca
+        self._modelo = modelo
 
-# Clase coche, hereda de vehiculo
+    # La "Propiedad" permite leer la matrícula pero no cambiarla fácilmente
+    @property
+    def matricula(self):
+        return self._matricula
+
+    @abstractmethod
+    def permiso_necesario(self): # De esta manera, nos aseguramos que sus hijas no puedan ser creadas sin un permiso
+        pass
+
 class Coche(Vehiculo):
-    def __init__(self, matricula: str, modelo: str, marca: str, es_electrico: bool, es_hibrido: bool, cv: int):
+    def __init__(self, matricula: str, marca: str, modelo: str, es_automatico: bool):
+        # Aprovechamos el constructor de la madre
+        super().__init__(matricula, marca, modelo)
+        self.es_automatico = es_automatico
 
-        super().__init__(matricula, modelo, marca, es_electrico, es_hibrido)
-        self.cv: int = cv
+    def permiso_necesario(self):
+        return "B"
 
-# Clase moto, hereda de vehiculo
 class Moto(Vehiculo):
-    def __init__(self, matricula: str, modelo: str, marca: str, es_electrico: bool, es_hibrido: bool, cilindrada: int):
+    def __init__(self, matricula: str, marca: str, modelo: str, cilindrada: int):
+        super().__init__(matricula, marca, modelo)
+        self.cilindrada = cilindrada
 
-        super().__init__(matricula, modelo, marca, es_electrico, es_hibrido)
-        self.cilindrada: int = cilindrada
-
-
-
-
-
-
-
-
-
-
+    def permiso_necesario(self):
+        return "A2"
