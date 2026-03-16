@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 # Clase base
 class Persona(ABC):
-    def __init__(self, dni: str, nombre: str, apellido: str, telefono: str):
+    def __init__(self, dni, nombre, apellido, telefono):
         # Atributos protegidos
         self._dni = dni
         self._nombre = nombre
@@ -21,7 +21,7 @@ class Persona(ABC):
 
 # Clase alumno hereda de persona
 class Alumno(Persona):
-    def __init__(self, dni: str, nombre: str, apellido: str, telefono: str, carnet_objetivo: str):
+    def __init__(self, dni, nombre, apellido, telefono, carnet_objetivo):
         super().__init__(dni, nombre, apellido, telefono)
         self.carnet_objetivo = carnet_objetivo
         self.clases_restantes = 0
@@ -31,10 +31,9 @@ class Alumno(Persona):
 
 # Clase profesor hereda de persona
 class Profesor(Persona):
-    def __init__(self, dni: str, nombre: str, apellido: str, telefono: str, especialidad: str):
+    def __init__(self, dni, nombre, apellido, telefono, especialidad):
         super().__init__(dni, nombre, apellido, telefono)
         self.especialidad = especialidad
-
 
     def mostrar_responsabilidad(self):
         return f"Profesor instructor de {self.especialidad}"
