@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+# Clase base
 class Vehiculo(ABC):
     def __init__(self, matricula: str, marca: str, modelo: str):
         # Usamos _ para indicar que son atributos protegidos
@@ -16,6 +17,7 @@ class Vehiculo(ABC):
     def permiso_necesario(self): # De esta manera, nos aseguramos que sus hijas no puedan ser creadas sin un permiso
         pass
 
+# Clase hija coche hereda de vehiculo
 class Coche(Vehiculo):
     def __init__(self, matricula: str, marca: str, modelo: str, es_automatico: bool):
         # Aprovechamos el constructor de la madre
@@ -25,6 +27,7 @@ class Coche(Vehiculo):
     def permiso_necesario(self):
         return "B"
 
+# Clase hija moto hereda de vehiculo
 class Moto(Vehiculo):
     def __init__(self, matricula: str, marca: str, modelo: str, cilindrada: int):
         super().__init__(matricula, marca, modelo)
