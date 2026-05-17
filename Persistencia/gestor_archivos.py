@@ -1,7 +1,7 @@
 import pickle
 import os
 
-# Nombre del archivo binario donde se guardará todo el estado de la autoescuela
+# Nombre del archivo binario donde se guardara ttodo el estado de la autoescuela
 ARCHIVO_DATOS = "autoescuela_datos.bin"
 
 def guardar_datos(autoescuela) -> None:
