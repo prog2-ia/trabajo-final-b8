@@ -20,7 +20,7 @@ class ClasePractica:
 
     # Metodo especial str para imprimir la información de la clase de forma legible
     def __str__(self):
-        return f"Clase el {self.__fecha}: {self.__alumno.nombre} con el vehículo de matrícula {self.__vehiculo.matricula} y el profesor {self.__profesor.nombre}."
+        return f"Clase el {self.__fecha}: {self.__alumno._nombre} con el vehículo de matrícula {self.__vehiculo.matricula} y el profesor {self.__profesor._nombre}."
 
     # Metodo para validar si el vehiculo es apto para el carnet que busca el alumno
     def validar_compatibilidad(self):
