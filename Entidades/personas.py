@@ -24,6 +24,9 @@ class Persona(ABC):
     def mostrar_responsabilidad(self) -> str:
         pass
 
+    def __str__(self) -> str:
+        return f"{self._nombre} {self._apellido} (DNI: {self._dni})"
+
 # Clase alumno hereda de persona
 class Alumno(Persona):
     carnet_objetivo: str
@@ -37,6 +40,9 @@ class Alumno(Persona):
     def mostrar_responsabilidad(self) -> str:
         return f"Alumno preparándose para el carnet {self.carnet_objetivo}"
 
+    def __str__(self) -> str:
+        return f"[Alumno] {super().__str__()} - Objetivo: {self.carnet_objetivo}"
+
 # Clase profesor hereda de persona
 class Profesor(Persona):
     especialidad: str
@@ -47,3 +53,6 @@ class Profesor(Persona):
 
     def mostrar_responsabilidad(self) -> str:
         return f"Profesor instructor de {self.especialidad}"
+
+    def __str__(self) -> str:
+        return f"[Profesor] {super().__str__()} - Especialidad: {self.especialidad}"
