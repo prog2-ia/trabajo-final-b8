@@ -30,7 +30,9 @@ El sistema tiene 10 clases en total y cumple con todo lo que pide el enunciado:
 
 ## Cómo ejecutarlo
 
-Para arrancar el programa, abre la terminal en la carpeta raíz del proyecto y lanza el menú principal:
+Para arrancar el programa, abre la terminal en la carpeta raíz del proyecto y lanza el menú principal (prueba uno y si no funciona el otro):
 
 ```bash
+python UI/main.py
+
 python3 UI/main.py
